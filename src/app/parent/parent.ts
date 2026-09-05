@@ -9,10 +9,13 @@ import { Child } from '../child/child';
 })
 export class Parent {
 
-  parentName = 'Ajay';
+  user = {
+    name: 'Ajay',
+    age: 31
+  };
 
   changeName() {
-    this.parentName = 'Rahul';
+    this.user.name = 'Rahul';
   }
  
 }

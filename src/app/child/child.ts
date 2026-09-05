@@ -1,5 +1,10 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
+interface User {
+  name: string;
+  age: number;
+}
+
 @Component({
  selector: 'app-child',
  imports: [],
@@ -8,10 +13,9 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class Child implements OnChanges {
 
- @Input() name: string = '';
+  @Input() user!: User;
 
- ngOnChanges(changes: SimpleChanges) {
-   console.log('ngOnChanges called');
-   console.log(changes);
- }
+  ngOnChanges(changes: SimpleChanges) {
+    console.log(changes['user']);
+  }
 }
