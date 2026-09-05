@@ -11,11 +11,6 @@ export class Parent {
 
   parentName = 'Ajay';
 
-  user = {
-    name: 'Ajay',
-    age: 31
-  };
-
   changeName() {
     this.parentName = 'Rahul';
   }

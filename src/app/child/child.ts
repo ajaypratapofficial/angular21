@@ -1,28 +1,17 @@
-import { Component, Input, SimpleChanges } from '@angular/core';
-
-interface User {
-  name: string;
-  age: number;
-}
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
-  selector: 'app-child',
-  imports: [],
-  templateUrl: './child.html',
-  styleUrl: './child.css',
+ selector: 'app-child',
+ imports: [],
+ templateUrl: './child.html',
+ styleUrl: './child.css'
 })
-export class Child {
-  // @Input() name: string = '';
+export class Child implements OnChanges {
 
-  // ngOnChanges(changes: SimpleChanges) {
-  //   console.log('ngOnChanges called');
+ @Input() name: string = '';
 
-  //   console.log(changes);
-  // }
-
-  @Input() user!: User;
-
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(changes['user']);
-  }
+ ngOnChanges(changes: SimpleChanges) {
+   console.log('ngOnChanges called');
+   console.log(changes);
+ }
 }
