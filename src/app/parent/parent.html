@@ -2,8 +2,13 @@
 
 <p>Parent Name: {{ user.name }}</p>
 
-<button (click)="changeName()">Change Name</button>
+<button (click)="changeName()">
+  Change Name From Parent
+</button>
 
 <hr />
 
-<app-child [user]="user"></app-child>
+<app-child
+  [user]="user"
+  (userChanged)="onUserChanged($event)">
+</app-child>
