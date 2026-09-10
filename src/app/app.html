@@ -1,2 +1,17 @@
-hi this is app html
-<br>
+<h2>ViewChild Example</h2>
+
+<input
+  #myInput // creates a template reference variable
+  type="text"
+  placeholder="Enter your name"
+/>
+
+<br><br>
+
+<button (click)="focusInput()">
+  Focus Input
+</button>
+
+<button (click)="clearInput()">
+  Clear Input
+</button>
