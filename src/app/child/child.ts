@@ -15,6 +15,7 @@ export class Child {
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes["name"]) {
+      console.log("changes object:", changes);
       console.log("Name changed to:", changes["name"].currentValue);
     }
   }
