@@ -1,2 +1,33 @@
-hi this is app html
-<br>
+<h2>Angular Pipes Demo</h2>
+
+<h3>1. Uppercase Pipe</h3>
+<p>{{ name | uppercase }}</p>
+
+<h3>2. Lowercase Pipe</h3>
+<p>{{ name | lowercase }}</p>
+
+<h3>3. Date Pipe</h3>
+<p>{{ today | date }}</p>
+<p>{{ today | date:'dd/MM/yyyy' }}</p>
+<p>{{ today | date:'fullDate' }}</p>
+
+<h3>4. Currency Pipe</h3>
+<p>{{ price | currency:'INR' }}</p>
+<p>{{ price | currency:'USD' }}</p>
+
+<h3>5. Number Pipe</h3>
+<p>{{ salary | number }}</p>
+<p>{{ salary | number:'1.2-2' }}</p>
+
+<h3>6. JSON Pipe</h3>
+<pre>{{ user | json }}</pre>
+
+<h3>7. Custom Pipe</h3>
+<p>{{ name | capitalize }}</p>
+
+<h3>8. Pipe Parameter</h3>
+<p>{{ name | capitalize:'Mr.' }}</p>
+
+<h3>9. Impure Pipe</h3>
+<p>{{ users | impure }}</p>
+<button (click)="addUser()">Add User</button>
