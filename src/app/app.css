@@ -1,0 +1,146 @@
+/* Main form */
+
+form {
+  width: 500px;
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-family: Arial, sans-serif;
+}
+
+
+/* Heading */
+
+h2 {
+  text-align: center;
+}
+
+
+/* Labels */
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+
+/* Input */
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+
+/* Red border for invalid input */
+
+.input-error {
+  border-color: red;
+  background-color: #fff5f5;
+}
+
+
+/* Green border for valid input */
+
+.input-success {
+  border-color: green;
+  background-color: #f3fff3;
+}
+
+
+/* Error message */
+
+.error {
+  color: red;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+
+/* Green text */
+
+.success {
+  color: green;
+  font-weight: bold;
+}
+
+
+/* Red text */
+
+.error-text {
+  color: red;
+  font-weight: bold;
+}
+
+
+/* Blue information text */
+
+.blue-text {
+  color: blue;
+  font-weight: bold;
+}
+
+
+/* Orange information text */
+
+.orange-text {
+  color: orange;
+  font-weight: bold;
+}
+
+
+/* Label inside state box */
+
+.label {
+  color: #333;
+  font-weight: bold;
+}
+
+
+/* State information box */
+
+.info-box {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #f5f9ff;
+  border-left: 5px solid blue;
+  border-radius: 5px;
+}
+
+
+/* State heading */
+
+.info-box h4 {
+  margin-top: 0;
+  color: #333;
+}
+
+
+/* State paragraphs */
+
+.info-box p {
+  margin: 6px 0;
+}
+
+
+/* Submit button */
+
+button {
+  padding: 10px 25px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  opacity: 0.85;
+}

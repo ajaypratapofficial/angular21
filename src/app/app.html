@@ -10,13 +10,13 @@
     type="text"
     name="name"
     [(ngModel)]="name"
-
     required
     minlength="3"
     maxlength="20"
     pattern="[a-zA-Z ]+"
-
     #nameControl="ngModel"
+    [class.input-error]="nameControl.invalid && nameControl.touched"
+    [class.input-success]="nameControl.valid && nameControl.touched"
   >
 
   <!-- Name Errors -->
@@ -24,36 +24,64 @@
   @if (nameControl.invalid && nameControl.touched) {
 
     @if (nameControl.hasError('required')) {
-      <p>Name is required.</p>
+      <p class="error">❌ Name is required.</p>
     }
 
     @if (nameControl.hasError('minlength')) {
-      <p>Name must contain at least 3 characters.</p>
+      <p class="error">❌ Name must contain at least 3 characters.</p>
     }
 
     @if (nameControl.hasError('maxlength')) {
-      <p>Name cannot contain more than 20 characters.</p>
+      <p class="error">❌ Name cannot contain more than 20 characters.</p>
     }
 
     @if (nameControl.hasError('pattern')) {
-      <p>Name can contain only letters and spaces.</p>
+      <p class="error">❌ Name can contain only letters and spaces.</p>
     }
 
   }
 
+  <!-- Name State -->
 
-  <!-- Name Form State -->
+  <div class="info-box">
+    <h4>📋 Name State</h4>
 
-  <h4>Name State</h4>
+    <p>
+      <span class="label">Valid:</span>
+      <span [class.success]="nameControl.valid"
+            [class.error-text]="nameControl.invalid">
+        {{ nameControl.valid }}
+      </span>
+    </p>
 
-  <p>Valid: {{ nameControl.valid }}</p>
-  <p>Invalid: {{ nameControl.invalid }}</p>
+    <p>
+      <span class="label">Invalid:</span>
+      <span [class.error-text]="nameControl.invalid"
+            [class.success]="nameControl.valid">
+        {{ nameControl.invalid }}
+      </span>
+    </p>
 
-  <p>Touched: {{ nameControl.touched }}</p>
-  <p>Untouched: {{ nameControl.untouched }}</p>
+    <p>
+      <span class="label">Touched:</span>
+      <span class="blue-text">{{ nameControl.touched }}</span>
+    </p>
 
-  <p>Dirty: {{ nameControl.dirty }}</p>
-  <p>Pristine: {{ nameControl.pristine }}</p>
+    <p>
+      <span class="label">Untouched:</span>
+      <span class="orange-text">{{ nameControl.untouched }}</span>
+    </p>
+
+    <p>
+      <span class="label">Dirty:</span>
+      <span class="blue-text">{{ nameControl.dirty }}</span>
+    </p>
+
+    <p>
+      <span class="label">Pristine:</span>
+      <span class="orange-text">{{ nameControl.pristine }}</span>
+    </p>
+  </div>
 
 
   <br>
@@ -67,11 +95,11 @@
     type="email"
     name="email"
     [(ngModel)]="email"
-
     required
     email
-
     #emailControl="ngModel"
+    [class.input-error]="emailControl.invalid && emailControl.touched"
+    [class.input-success]="emailControl.valid && emailControl.touched"
   >
 
   <!-- Email Errors -->
@@ -79,28 +107,56 @@
   @if (emailControl.invalid && emailControl.touched) {
 
     @if (emailControl.hasError('required')) {
-      <p>Email is required.</p>
+      <p class="error">❌ Email is required.</p>
     }
 
     @if (emailControl.hasError('email')) {
-      <p>Please enter a valid email.</p>
+      <p class="error">❌ Please enter a valid email address.</p>
     }
 
   }
 
+  <!-- Email State -->
 
-  <!-- Email Form State -->
+  <div class="info-box">
+    <h4>📋 Email State</h4>
 
-  <h4>Email State</h4>
+    <p>
+      <span class="label">Valid:</span>
+      <span [class.success]="emailControl.valid"
+            [class.error-text]="emailControl.invalid">
+        {{ emailControl.valid }}
+      </span>
+    </p>
 
-  <p>Valid: {{ emailControl.valid }}</p>
-  <p>Invalid: {{ emailControl.invalid }}</p>
+    <p>
+      <span class="label">Invalid:</span>
+      <span [class.error-text]="emailControl.invalid"
+            [class.success]="emailControl.valid">
+        {{ emailControl.invalid }}
+      </span>
+    </p>
 
-  <p>Touched: {{ emailControl.touched }}</p>
-  <p>Untouched: {{ emailControl.untouched }}</p>
+    <p>
+      <span class="label">Touched:</span>
+      <span class="blue-text">{{ emailControl.touched }}</span>
+    </p>
 
-  <p>Dirty: {{ emailControl.dirty }}</p>
-  <p>Pristine: {{ emailControl.pristine }}</p>
+    <p>
+      <span class="label">Untouched:</span>
+      <span class="orange-text">{{ emailControl.untouched }}</span>
+    </p>
+
+    <p>
+      <span class="label">Dirty:</span>
+      <span class="blue-text">{{ emailControl.dirty }}</span>
+    </p>
+
+    <p>
+      <span class="label">Pristine:</span>
+      <span class="orange-text">{{ emailControl.pristine }}</span>
+    </p>
+  </div>
 
 
   <br>
@@ -114,13 +170,13 @@
     type="password"
     name="password"
     [(ngModel)]="password"
-
     required
     minlength="8"
     maxlength="20"
     pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
-
     #passwordControl="ngModel"
+    [class.input-error]="passwordControl.invalid && passwordControl.touched"
+    [class.input-success]="passwordControl.valid && passwordControl.touched"
   >
 
   <!-- Password Errors -->
@@ -128,42 +184,67 @@
   @if (passwordControl.invalid && passwordControl.touched) {
 
     @if (passwordControl.hasError('required')) {
-      <p>Password is required.</p>
+      <p class="error">❌ Password is required.</p>
     }
 
     @if (passwordControl.hasError('minlength')) {
-      <p>Password must contain at least 8 characters.</p>
+      <p class="error">❌ Password must contain at least 8 characters.</p>
     }
 
     @if (passwordControl.hasError('maxlength')) {
-      <p>Password cannot contain more than 20 characters.</p>
+      <p class="error">❌ Password cannot contain more than 20 characters.</p>
     }
 
     @if (passwordControl.hasError('pattern')) {
-      <p>Password must contain at least one letter and one number.</p>
+      <p class="error">❌ Password must contain at least one letter and one number.</p>
     }
 
   }
 
+  <!-- Password State -->
 
-  <!-- Password Form State -->
+  <div class="info-box">
+    <h4>📋 Password State</h4>
 
-  <h4>Password State</h4>
+    <p>
+      <span class="label">Valid:</span>
+      <span [class.success]="passwordControl.valid"
+            [class.error-text]="passwordControl.invalid">
+        {{ passwordControl.valid }}
+      </span>
+    </p>
 
-  <p>Valid: {{ passwordControl.valid }}</p>
-  <p>Invalid: {{ passwordControl.invalid }}</p>
+    <p>
+      <span class="label">Invalid:</span>
+      <span [class.error-text]="passwordControl.invalid"
+            [class.success]="passwordControl.valid">
+        {{ passwordControl.invalid }}
+      </span>
+    </p>
 
-  <p>Touched: {{ passwordControl.touched }}</p>
-  <p>Untouched: {{ passwordControl.untouched }}</p>
+    <p>
+      <span class="label">Touched:</span>
+      <span class="blue-text">{{ passwordControl.touched }}</span>
+    </p>
 
-  <p>Dirty: {{ passwordControl.dirty }}</p>
-  <p>Pristine: {{ passwordControl.pristine }}</p>
+    <p>
+      <span class="label">Untouched:</span>
+      <span class="orange-text">{{ passwordControl.untouched }}</span>
+    </p>
+
+    <p>
+      <span class="label">Dirty:</span>
+      <span class="blue-text">{{ passwordControl.dirty }}</span>
+    </p>
+
+    <p>
+      <span class="label">Pristine:</span>
+      <span class="orange-text">{{ passwordControl.pristine }}</span>
+    </p>
+  </div>
 
 
   <br><br>
-
-
-  <!-- ================= SUBMIT ================= -->
 
   <button type="submit">
     Submit
