@@ -1,15 +1,172 @@
-<input
-  type="text"
-  [(ngModel)]="name"
-  placeholder="Enter your name"
->
+<h2>Template-driven Form</h2>
 
-<p>Name: {{ name }}</p>
+<form (ngSubmit)="submitForm()">
 
-  <!-- 
-[(ngModel)]="name" combines
+  <!-- ================= NAME ================= -->
 
-    [property binding]
-            +
-    [event binding]          -->
+  <label>Name</label>
 
+  <input
+    type="text"
+    name="name"
+    [(ngModel)]="name"
+
+    required
+    minlength="3"
+    maxlength="20"
+    pattern="[a-zA-Z ]+"
+
+    #nameControl="ngModel"
+  >
+
+  <!-- Name Errors -->
+
+  @if (nameControl.invalid && nameControl.touched) {
+
+    @if (nameControl.hasError('required')) {
+      <p>Name is required.</p>
+    }
+
+    @if (nameControl.hasError('minlength')) {
+      <p>Name must contain at least 3 characters.</p>
+    }
+
+    @if (nameControl.hasError('maxlength')) {
+      <p>Name cannot contain more than 20 characters.</p>
+    }
+
+    @if (nameControl.hasError('pattern')) {
+      <p>Name can contain only letters and spaces.</p>
+    }
+
+  }
+
+
+  <!-- Name Form State -->
+
+  <h4>Name State</h4>
+
+  <p>Valid: {{ nameControl.valid }}</p>
+  <p>Invalid: {{ nameControl.invalid }}</p>
+
+  <p>Touched: {{ nameControl.touched }}</p>
+  <p>Untouched: {{ nameControl.untouched }}</p>
+
+  <p>Dirty: {{ nameControl.dirty }}</p>
+  <p>Pristine: {{ nameControl.pristine }}</p>
+
+
+  <br>
+
+
+  <!-- ================= EMAIL ================= -->
+
+  <label>Email</label>
+
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="email"
+
+    required
+    email
+
+    #emailControl="ngModel"
+  >
+
+  <!-- Email Errors -->
+
+  @if (emailControl.invalid && emailControl.touched) {
+
+    @if (emailControl.hasError('required')) {
+      <p>Email is required.</p>
+    }
+
+    @if (emailControl.hasError('email')) {
+      <p>Please enter a valid email.</p>
+    }
+
+  }
+
+
+  <!-- Email Form State -->
+
+  <h4>Email State</h4>
+
+  <p>Valid: {{ emailControl.valid }}</p>
+  <p>Invalid: {{ emailControl.invalid }}</p>
+
+  <p>Touched: {{ emailControl.touched }}</p>
+  <p>Untouched: {{ emailControl.untouched }}</p>
+
+  <p>Dirty: {{ emailControl.dirty }}</p>
+  <p>Pristine: {{ emailControl.pristine }}</p>
+
+
+  <br>
+
+
+  <!-- ================= PASSWORD ================= -->
+
+  <label>Password</label>
+
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="password"
+
+    required
+    minlength="8"
+    maxlength="20"
+    pattern="^(?=.*[A-Za-z])(?=.*\d).+$"
+
+    #passwordControl="ngModel"
+  >
+
+  <!-- Password Errors -->
+
+  @if (passwordControl.invalid && passwordControl.touched) {
+
+    @if (passwordControl.hasError('required')) {
+      <p>Password is required.</p>
+    }
+
+    @if (passwordControl.hasError('minlength')) {
+      <p>Password must contain at least 8 characters.</p>
+    }
+
+    @if (passwordControl.hasError('maxlength')) {
+      <p>Password cannot contain more than 20 characters.</p>
+    }
+
+    @if (passwordControl.hasError('pattern')) {
+      <p>Password must contain at least one letter and one number.</p>
+    }
+
+  }
+
+
+  <!-- Password Form State -->
+
+  <h4>Password State</h4>
+
+  <p>Valid: {{ passwordControl.valid }}</p>
+  <p>Invalid: {{ passwordControl.invalid }}</p>
+
+  <p>Touched: {{ passwordControl.touched }}</p>
+  <p>Untouched: {{ passwordControl.untouched }}</p>
+
+  <p>Dirty: {{ passwordControl.dirty }}</p>
+  <p>Pristine: {{ passwordControl.pristine }}</p>
+
+
+  <br><br>
+
+
+  <!-- ================= SUBMIT ================= -->
+
+  <button type="submit">
+    Submit
+  </button>
+
+</form>
