@@ -1,2 +1,15 @@
-hi this is app html
-<br>
+<input
+  type="text"
+  [(ngModel)]="name"
+  placeholder="Enter your name"
+>
+
+<p>Name: {{ name }}</p>
+
+  <!-- 
+[(ngModel)]="name" combines
+
+    [property binding]
+            +
+    [event binding]          -->
+

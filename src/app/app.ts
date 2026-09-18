@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 @Component({
-  selector: 'app-root',
-  imports: [],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  selector: "app-root",
+  imports: [FormsModule],
+  templateUrl: "./app.html",
+  styleUrls: ["./app.css"],
 })
 export class App {
-
+  name = "";
 }
