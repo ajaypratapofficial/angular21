@@ -1,5 +1,10 @@
 import { Component } from "@angular/core";
-import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
+import {
+  FormArray,
+  FormControl,
+  FormGroup,
+  ReactiveFormsModule,
+} from "@angular/forms";
 
 @Component({
   selector: "app-root",
@@ -10,9 +15,24 @@ import { FormControl, FormGroup, ReactiveFormsModule } from "@angular/forms";
 export class App {
   form = new FormGroup({
     name: new FormControl(""),
-    email: new FormControl(""),
-    password: new FormControl(""),
+
+    skills: new FormArray([
+      new FormControl("Java"),
+      new FormControl("Angular"),
+    ]),
   });
+
+  get skills() {
+    return this.form.get("skills") as FormArray;
+  }
+
+  addSkill() {
+    this.skills.push(new FormControl(""));
+  }
+
+  removeSkill(index: number) {
+    this.skills.removeAt(index);
+  }
 
   submitForm() {
     console.log(this.form.value);

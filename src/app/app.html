@@ -1,26 +1,39 @@
 <form [formGroup]="form" (ngSubmit)="submitForm()">
 
   <label>Name</label>
+
   <input
     type="text"
     formControlName="name"
   >
 
-  <br><br>
+  <h3>Skills</h3>
 
-  <label>Email</label>
-  <input
-    type="email"
-    formControlName="email"
+  <div formArrayName="skills">
+
+    @for (skill of skills.controls; track $index) {
+
+      <input [formControlName]="$index">
+
+      <button
+        type="button"
+        (click)="removeSkill($index)"
+      >
+        Remove
+      </button>
+
+      <br><br>
+
+    }
+
+  </div>
+
+  <button
+    type="button"
+    (click)="addSkill()"
   >
-
-  <br><br>
-
-  <label>Password</label>
-  <input
-    type="password"
-    formControlName="password"
-  >
+    Add Skill
+  </button>
 
   <br><br>
 
