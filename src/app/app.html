@@ -1,2 +1,31 @@
-hi this is app html
-<br>
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+
+  <label>Name</label>
+  <input
+    type="text"
+    formControlName="name"
+  >
+
+  <br><br>
+
+  <label>Email</label>
+  <input
+    type="email"
+    formControlName="email"
+  >
+
+  <br><br>
+
+  <label>Password</label>
+  <input
+    type="password"
+    formControlName="password"
+  >
+
+  <br><br>
+
+  <button type="submit">
+    Submit
+  </button>
+
+</form>
