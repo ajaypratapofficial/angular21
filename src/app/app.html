@@ -1,2 +1,26 @@
-hi this is app html
-<br>
+<div class="container">
+
+  <h2>RxJS Observable Demo</h2>
+
+  <button (click)="runObservable()">
+    Subscribe to Observable
+  </button>
+
+  <h3>Emitted Numbers</h3>
+
+  @for (number of numbers; track $index) {
+    <div class="number-box">
+      {{ number }}
+    </div>
+  }
+
+  <h3>Status</h3>
+
+  <p
+    class="status"
+    [class.completed]="status === 'Completed'"
+  >
+    {{ status }}
+  </p>
+
+</div>
