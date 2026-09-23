@@ -1,2 +1,41 @@
-hi this is app html
-<br>
+<h2>Employee Management</h2>
+
+<button
+ (click)="loadEmployees()"
+ [disabled]="loading"
+>
+ Load Employees
+</button>
+
+<!-- Loading State -->
+@if (loading) {
+ <p class="loading">
+   Loading employees...
+ </p>
+}
+
+<!-- Error State -->
+@if (errorMessage) {
+ <p class="error">
+   {{ errorMessage }}
+ </p>
+}
+
+<!-- Employee Data -->
+@if (!loading && !errorMessage && employees.length > 0) {
+
+ <h3>Employee List</h3>
+ @for (employee of employees; track employee.id) {
+   <div class="employee-card">
+     <p><strong>ID:</strong> {{ employee.id }}</p>
+     <p><strong>Name:</strong> {{ employee.name }}</p>
+     <p><strong>Email:</strong> {{ employee.email }}</p>
+     <p><strong>Department:</strong> {{ employee.department }}</p>
+   </div>
+ }
+}
+
+<!-- Empty State -->
+@if (!loading && !errorMessage && employees.length === 0) {
+ <p>No employees found.</p>
+}
