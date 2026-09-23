@@ -1,2 +1,73 @@
-hi this is app html
-<br>
+<h2>RxJS unsubscribe() Demo</h2>
+
+<hr>
+
+<h3>1. interval()</h3>
+
+<button (click)="startInterval()">
+  Start Interval
+</button>
+
+<button (click)="stopInterval()">
+  Stop Interval
+</button>
+
+<hr>
+
+<h3>2. timer() repeating</h3>
+
+<button (click)="startTimer()">
+  Start Timer
+</button>
+
+<button (click)="stopTimer()">
+  Stop Timer
+</button>
+
+<hr>
+
+<h3>3. fromEvent()</h3>
+
+<button (click)="startClickListener()">
+  Start Click Listener
+</button>
+
+<button (click)="stopClickListener()">
+  Stop Click Listener
+</button>
+
+<p>
+  After starting, click anywhere on the page and check the console.
+</p>
+
+<hr>
+
+<h3>4. Subject</h3>
+
+<button (click)="startSubject()">
+  Subscribe to Subject
+</button>
+
+<button (click)="sendMessage()">
+  Send Subject Message
+</button>
+
+<button (click)="stopSubject()">
+  Unsubscribe Subject
+</button>
+
+<hr>
+
+<h3>5. WebSocket</h3>
+
+<button (click)="startWebSocket()">
+  Connect WebSocket
+</button>
+
+<button (click)="sendWebSocketMessage()">
+  Send WebSocket Message
+</button>
+
+<button (click)="stopWebSocket()">
+  Disconnect WebSocket
+</button>
