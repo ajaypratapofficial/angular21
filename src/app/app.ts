@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { FormBuilder, ReactiveFormsModule, Validators } from "@angular/forms";
+import { forbiddenUsername } from "./validators/custom-validators";
 
 @Component({
   selector: "app-root",
@@ -11,6 +12,7 @@ export class App {
   constructor(private fb: FormBuilder) {}
 
   form = this.fb.group({
+    username: ["", [Validators.required, forbiddenUsername]],
     name: ["", Validators.required],
     email: ["", [Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(8)]],

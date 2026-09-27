@@ -11,6 +11,17 @@
 
   <br><br>
 
+  <label>Username</label>
+  <input
+    type="text"
+    formControlName="username"
+  >
+  @if (form.controls.username.invalid && form.controls.username.touched) {
+    <div class="error">Username is required and cannot be "admin".</div>
+  }
+
+  <br><br>
+
   <label>Email</label>
   <input
     type="email"
