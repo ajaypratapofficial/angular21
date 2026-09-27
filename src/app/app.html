@@ -1,10 +1,13 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
 
   <label>Name</label>
   <input
     type="text"
     formControlName="name"
   >
+  @if (form.controls.name.invalid && form.controls.name.touched) {
+    <div class="error">Name is required.</div>
+  }
 
   <br><br>
 
@@ -13,6 +16,9 @@
     type="email"
     formControlName="email"
   >
+  @if (form.controls.email.invalid && form.controls.email.touched) {
+    <div class="error">Enter a valid email.</div>
+  }
 
   <br><br>
 
@@ -21,6 +27,9 @@
     type="password"
     formControlName="password"
   >
+  @if (form.controls.password.invalid && form.controls.password.touched) {
+    <div class="error">Password must be at least 8 characters.</div>
+  }
 
   <br><br>
 
